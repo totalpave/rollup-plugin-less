@@ -18,11 +18,11 @@ function executeBundle ( bundle ) {
 describe( 'rollup-plugin-less', function () {
     it( 'converts less', function () {
         return rollup.rollup({
-            entry: 'samples/main.js',
-            targets: [
+            input: 'samples/main.js',
+            output: [
                 {
                     format: 'cjs',
-                    dest: './bundle.js'
+                    file: './bundle.js'
                 }
             ],
             plugins: [ less({
@@ -30,7 +30,7 @@ describe( 'rollup-plugin-less', function () {
             }) ]
         }).then((bundle) => {
             bundle.write({
-                dest: './dist.cjs.js',
+                file: './dist.cjs.js',
                 format: 'cjs'
             });
        });
